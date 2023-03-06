@@ -1,11 +1,13 @@
 //! this file has all the routes in.
 const express = require("express");
 const usersController = require("./../controllers/usersController");
+const authController = require("./../controllers/authController");
 
 const router = express.Router();
 
-//a middleware that works on parameters
-// router.param("id", usersController.checkId);
+//a route only for sign up
+//http://localhost:8000/users/signup
+router.post("/signup", authController.signup);
 
 router
   .route("/")
