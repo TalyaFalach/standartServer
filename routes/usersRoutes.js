@@ -8,10 +8,12 @@ const router = express.Router();
 //a route only for sign up
 //http://localhost:8000/users/signup
 router.post("/signup", authController.signup);
+router.post("/login", authController.login);
 
 router
   .route("/")
-  .get(usersController.getAllUsers)
+  
+  .get(authController.protect,usersController.getAllUsers)
   .post(usersController.createUser);
 router
   .route("/:id")
