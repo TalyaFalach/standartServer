@@ -74,28 +74,34 @@ exports.login = async (req, res, next) => {
   }
 };
 
-exports.protect = catchAsync(async (req, res, next) => {
-  let token;
-  // 1) Getting token and check if it's there
+// exports.protect = catchAsync(async (req, res, next) => {
+//   let token;
+//   // 1) Getting token and check if it's there
 
-  if (
-    req.headers.authorization &&
-    req.headers.authorization.startsWith("Bearer")
-  ) {
-    token = req.headers.authorization.split(" ")[1];
-  }
-  console.log(token);
+//   if (
+//     req.headers.authorization &&
+//     req.headers.authorization.startsWith("Bearer")
+//   ) {
+//     token = req.headers.authorization.split(" ")[1];
+//   }
+//   //console.log(token);
 
-  if (!token) {
-    return next(
-       new AppError("You are not logged in. please log in to get access", 401)
-    );
-  }
-  // 2) Varification token
+//   if (!token) {
+//     return next(
+//       new AppError("You are not logged in. please log in to get access", 401)
+//     );
+//   }
+//   // 2) Varification token
+//   const decoded = await promisify(jwt.verify)(token, process.env.JWT_SECRET);
+//   console.log(decoded);
 
-  // 3) Check if user still exists
+//   // 3) Check if user still exists
+//   //? find the user by id, with the decoded id
+//   const user = await User.findById(decoded.id);
+//   if (!user) {
+//     next(new AppError("The token is no longer exist", 401));
+//   }
 
-  // 4) Check if user changed password after the token was created
-
-  next();
-});
+  
+//   next();
+// });

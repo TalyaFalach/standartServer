@@ -4,6 +4,6 @@ const router = express.Router();
 
 router
   .route("/:id")
-  .get(postsController.getPostById);
+  .get(postsController.getPostById)
 
   module.exports = router;

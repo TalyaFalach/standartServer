@@ -30,6 +30,8 @@ const userSchema = new mongoose.Schema({
   image: {
     type: String,
     trim: true,
+    default:
+      "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png",
   },
   password: {
     type: String,
@@ -50,7 +52,7 @@ const userSchema = new mongoose.Schema({
   },
 });
 
-// pre save missleware will run, between getting the data and saving it to the database
+// pre save middleware will run, between getting the data and saving it to the database
 userSchema.pre("save", async function (next) {
   //only run this function if password was modified
   if (!this.isModified("password")) return next();
