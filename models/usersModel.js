@@ -50,6 +50,9 @@ const userSchema = new mongoose.Schema({
       message: "Password are not the same",
     },
   },
+  about: String,
+  playing: String,
+  words: String,
 });
 
 // pre save middleware will run, between getting the data and saving it to the database

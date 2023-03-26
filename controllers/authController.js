@@ -65,6 +65,12 @@ exports.login = async (req, res, next) => {
       lastName: user.lastName,
       image: user.image,
       userId: id,
+      email: user.email,
+      image: user.image,
+      birthDate: user.birthDate,
+      about: user.about,
+      words: user.words,
+      playing:user.playing
     });
   } catch (err) {
     res.status(401).json({

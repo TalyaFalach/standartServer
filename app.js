@@ -5,6 +5,8 @@ const globalErrorHandler = require("./controllers/errorController");
 const appError = require("./utils/appError");
 const postsRouter = require("./routes/postsRoute");
 const salesRouter = require("./routes/salesRoute");
+const commentRoute = require("./routes/commentRoute");
+const articlesRoute = require("./routes/articlesRouter")
 const cors = require("cors");
 const AppError = require("./utils/appError");
 
@@ -23,6 +25,8 @@ app.use((req, res, next) => {
 app.use("/users", usersRouter);
 app.use("/posts", postsRouter);
 app.use("/sales", salesRouter);
+app.use("/comments", commentRoute);
+app.use("/articles", articlesRoute);
 
 app.all("*", (req, res, next) => {
   next(new AppError(`can not find ${req.originalUrl} on this server`, 404));

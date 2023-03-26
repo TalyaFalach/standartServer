@@ -5,9 +5,11 @@ const salesSchema = new mongoose.Schema({
     type: String,
   },
 
+  category: String,
+
   userId: {
     type: String,
-    required: [true, "we need tour details"],
+    required: [true, "we need user id details"],
   },
   productName: {
     type: String,
@@ -41,8 +43,7 @@ const salesSchema = new mongoose.Schema({
     minlength: 5,
   },
 
-  comments: [String],
-  likes: [String],
+  date: String,
 });
 
 const Sales = mongoose.model("Sales", salesSchema);
